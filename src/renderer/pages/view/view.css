@@ -1,0 +1,15 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.comment-display {
+    position: absolute;
+    width: 100vw;
+    padding: 20px;
+    bottom: 0;
+    background-color: rgb(58, 58, 58);
+    color: white;
+    text-align: center;
+}

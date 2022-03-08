@@ -37,6 +37,11 @@ const loadScript = async () => {
                 span.addEventListener("mouseover", () => {
                     if (showComments) {
                         commentDisplayElement.textContent = comment.value;
+                        commentDisplayElement.innerHTML =
+                            commentDisplayElement.innerHTML.replace(
+                                /\n\r?/g,
+                                "<br />"
+                            );
                         commentDisplayElement.style.display = "block";
                     }
                 });
@@ -59,6 +64,7 @@ const loadScript = async () => {
         });
 
         span.textContent = spanText;
+        span.innerHTML = span.innerHTML.replace(/\n\r?/g, "<br />");
     }
 };
 

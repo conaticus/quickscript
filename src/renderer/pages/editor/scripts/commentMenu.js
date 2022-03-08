@@ -75,6 +75,10 @@ export const closeCommentMenu = () => {
             );
 
             state.newSave.comments = newComments;
+        } else {
+            state.newSave.comments[
+                state.newSave.comments.indexOf(filteredComments[0])
+            ].value = commentInput.value;
         }
     }
 

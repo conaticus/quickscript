@@ -1,12 +1,12 @@
-const { ipcRenderer } = require("electron");
+const { ipcRenderer, dialog } = require("electron");
 const fs = require("fs/promises");
 
 const createScriptForm = document.getElementById("create-script-form");
 const pathBtn = document.getElementById("path-btn");
 const openScriptBtn = document.getElementById("open-script-btn");
 
-const scriptNameInput = createScriptForm.children.item(0);
-const scriptPathInput = createScriptForm.children.item(1);
+const scriptNameInput = document.getElementById("script-name-input");
+const scriptPathInput = document.getElementById("script-path-input");
 
 /**
  * Display error to the user

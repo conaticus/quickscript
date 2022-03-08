@@ -2,6 +2,8 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-size: 30px;
+    font-family: "Open Sans", sans-serif;
 }
 
 .comment-display {

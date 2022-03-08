@@ -15,8 +15,7 @@ body {
 
 .menu {
     background: rgb(58, 58, 58);
-    width: 500px;
-    height: 200px;
+    border-radius: 5px;
     position: fixed;
     top: 50%;
     left: 50%;
@@ -30,13 +29,14 @@ body {
     height: 200px;
 }
 
-.comment-menu {
-    width: 300px;
-    height: 50px;
-}
-
-.comment-menu input {
-    padding: 20px;
+.comment-menu textarea {
+    padding: 5px 10px;
+    resize: none;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    width: 250px;
+    height: 65px;
 }
 
 .options-menu-option {
@@ -47,4 +47,9 @@ body {
     cursor: pointer;
     border: none;
     border-radius: 2px;
+    margin-bottom: 5px;
+}
+
+#scripting-input-area {
+    font-size: 23px;
 }

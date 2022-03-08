@@ -52,7 +52,7 @@ const loadScript = async () => {
                     }
                 });
 
-                while (i <= comment.endIdx) {
+                while (i < comment.endIdx) {
                     spanText += scriptSave.contents[i];
                     i++;
                 }

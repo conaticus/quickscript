@@ -23,14 +23,40 @@ export const state = {
     newSave: {},
 };
 
-scriptingInputArea.addEventListener("input", () => {
+scriptingInputArea.addEventListener("input", ({ data }) => {
     state.newSave.contents = scriptingInputArea.value;
+
+    if (!data) return;
+
+    // bye performance
+    state.newSave.comments.forEach((comment, idx) => {
+        comment.startIdx += data.length;
+        comment.endIdx += data.length;
+        state.newSave.comments[idx] = comment;
+    });
 });
 
 scriptingInputArea.addEventListener("keydown", (e) => {
     if (e.key !== "Backspace") return;
 
-    state.newSave.comments.forEach(async (comment) => {
+    state.newSave.comments.forEach(async (comment, idx) => {
+        if (
+            scriptingInputArea.selectionStart ===
+            scriptingInputArea.selectionEnd
+        ) {
+            comment.startIdx--;
+            comment.endIdx--;
+        } else {
+            comment.startIdx -=
+                scriptingInputArea.selectionEnd -
+                scriptingInputArea.selectionStart;
+            comment.endIdx -=
+                scriptingInputArea.selectionEnd -
+                scriptingInputArea.selectionStart;
+        }
+
+        state.newSave.comments[idx] = comment;
+
         if (comment.endIdx !== scriptingInputArea.selectionEnd) return;
         e.preventDefault();
 
@@ -48,6 +74,10 @@ scriptingInputArea.addEventListener("keydown", (e) => {
             0,
             scriptingInputArea.value.length - 1
         );
+
+        comment.startIdx++;
+        comment.endIdx++;
+        state.newSave.comments[idx] = comment;
     });
 });
 
